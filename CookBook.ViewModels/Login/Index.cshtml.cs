@@ -20,7 +20,7 @@ namespace CookBook.ViewModels.Login
 
         public void OnGet()
         {
-
+            ViewData["loginErrorMessage"] = TempData["loginErrorMessage"];
         }
 
         [BindProperty]
@@ -32,7 +32,7 @@ namespace CookBook.ViewModels.Login
             {
                 return Page();
             }
-
+            TempData["loginErrorMessage"] = "Please use valid credentials or create an account.";
             return RedirectToPage("./Index");
         }
     }
