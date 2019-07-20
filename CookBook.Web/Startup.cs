@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CookBook.DataSource.Configuration;
+using CookBook.Services.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +29,8 @@ namespace CookBook.Web
         {
             //Inject repository
             services.AddDataSourceRepositories();
+            //Inject services
+            services.AddServices();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.

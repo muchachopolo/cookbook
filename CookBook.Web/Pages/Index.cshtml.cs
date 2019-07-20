@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CookBook.Entities.Users;
+using CookBook.Services.Users;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,6 +11,13 @@ namespace CookBook.Web.Pages
 {
     public class IndexModel : PageModel
     {
+        private readonly LoginService _loginService;
+
+        public IndexModel(LoginService loginService)
+        {
+            _loginService = loginService;
+        }
+
         public void OnGet()
         {
 
@@ -18,9 +26,14 @@ namespace CookBook.Web.Pages
         [BindProperty]
         public User User { get; set; }
 
-        public void OnPost()
+        public async Task<IActionResult> OnPost()
         {
+            if (await _loginService.LogginAttempt(User.Email, User.Password))
+            {
+                return Page();
+            }
 
+            return RedirectToPage("./Index");
         }
     }
 }
