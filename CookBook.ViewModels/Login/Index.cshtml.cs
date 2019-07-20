@@ -7,7 +7,7 @@ using CookBook.Services.Users;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CookBook.Web.Pages
+namespace CookBook.ViewModels.Login
 {
     public class IndexModel : PageModel
     {
