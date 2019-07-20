@@ -20,5 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Home\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Pages\Users\" />
+    <Folder Include="Pages\Recipes\" />
   </ItemGroup>
 </Project>
