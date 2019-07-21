@@ -31,18 +31,18 @@ namespace CookBook.Web.Middlewares
                 try
                 {
                     var User = context.Session.GetObject<User>("currentUser");
-                    if (User == null)
+                    if (User == null) {
                         context.Response.Redirect("/");
+                        return;
+                    }
                 }
                 catch (Exception)
                 {
                     context.Response.Redirect("/");
+                    return;
                 }
             }
-            else
-            {
-                await _next(context);
-            }
+            await _next(context);
         }
     }
 }

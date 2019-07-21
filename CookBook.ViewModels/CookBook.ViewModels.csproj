@@ -7,6 +7,7 @@
   <ItemGroup>
     <Folder Include="Login\" />
     <Folder Include="Home\" />
+    <Folder Include="Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CookBook.Services\CookBook.Services.csproj" />

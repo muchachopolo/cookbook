@@ -19,9 +19,14 @@ namespace CookBook.ViewModels.Login
             _loginService = loginService;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if(_loginService.IsSignedIn())
+            {
+                return RedirectToPage("/Home/Index");
+            }
             ViewData["loginErrorMessage"] = TempData["loginErrorMessage"];
+            return Page();
         }
 
         [BindProperty]
@@ -31,8 +36,7 @@ namespace CookBook.ViewModels.Login
         {
             if (await _loginService.LogginAttempt(User.Email, User.Password))
             {
-                HttpContext.Session.SetObject("currentUser", User);
-                return Page();
+                return RedirectToPage("./Home/Index"); ;
             }
             TempData["loginErrorMessage"] = "Please use valid credentials or create an account.";
             return RedirectToPage("./Index");
