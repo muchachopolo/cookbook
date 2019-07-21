@@ -31,18 +31,18 @@
                 <a asp-page="/Index" class="navbar-brand">CookBook.com</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (LoginService.IsSignedIn())
-                    {
+                @if (LoginService.IsSignedIn())
+                {
+                    <ul class="nav navbar-nav">
                         <li><a asp-page="/Home/Index">Home</a></li>
-                    }
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    @if (LoginService.IsSignedIn())
-                    {
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
                         <li><a asp-page="/Logout">Logout</a></li>
-                    }
-                </ul>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a asp-page="/Users/Profile" asp-route-id="@LoginService.getCurrentUser().Id">Profile</a></li>
+                    </ul>
+                }
             </div>
         </div>
     </nav>

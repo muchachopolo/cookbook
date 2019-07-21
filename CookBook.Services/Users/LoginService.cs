@@ -48,6 +48,11 @@ namespace CookBook.Services.Users
             return false;
         }
 
+        public User getCurrentUser()
+        {
+            return _context.HttpContext.Session.GetObject<User>("currentUser");
+        }
+
         public bool IsSignedIn()
         {
             var User = _context.HttpContext.Session.GetObject<User>("currentUser");

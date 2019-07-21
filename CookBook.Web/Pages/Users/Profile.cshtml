@@ -1,0 +1,42 @@
+﻿@page
+@model CookBook.ViewModels.Users.ProfileModel
+@{
+    ViewData["Title"] = "User Profile";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Birth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.User.Birth)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.User.Id">Edit</a> |
+    <a asp-page="../Home/Index">Back to Home</a>
+</div>
