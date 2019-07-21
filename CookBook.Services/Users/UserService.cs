@@ -36,5 +36,32 @@ namespace CookBook.Services.Users
             }).FirstOrDefaultAsync(user => user.Id == id);
             return User;
         }
+
+        public async Task<User> UpdateUserAsync(User user)
+        {
+            _repository.Attach(user).State = EntityState.Modified;
+
+            try
+            {
+                await _repository.SaveChangesAsync();
+                return user;
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(user.Id))
+                {
+                    return null;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
+        private bool UserExists(int id)
+        {
+            return _repository.Users.Any(e => e.Id == id);
+        }
     }
 }
