@@ -11,6 +11,7 @@
     <Folder Include="Users\" />
     <Folder Include="Configuration\" />
     <Folder Include="Session\" />
+    <Folder Include="Recipes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CookBook.DataSource\CookBook.DataSource.csproj" />

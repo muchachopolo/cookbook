@@ -1,4 +1,5 @@
-﻿using CookBook.Services.Users;
+﻿using CookBook.Services.Recipes;
+using CookBook.Services.Users;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CookBook.Services.Configuration
@@ -10,6 +11,7 @@ namespace CookBook.Services.Configuration
             services.AddHttpContextAccessor();
             services.AddTransient<LoginService>();
             services.AddTransient<UserService>();
+            services.AddTransient<RecipesService>();
             return services;
         }
     }

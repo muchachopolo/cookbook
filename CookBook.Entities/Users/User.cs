@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using CookBook.Entities.Base;
+using CookBook.Entities.Recipes;
 
 namespace CookBook.Entities.Users
 {
@@ -20,5 +22,7 @@ namespace CookBook.Entities.Users
         public bool active { get; set; }
         [Required]
         public DateTime Birth { get; set; }
+
+        public ICollection<Recipe> Recipes { get; set; }
     }
 }

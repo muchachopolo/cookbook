@@ -1,6 +1,48 @@
 ﻿@page
 @model CookBook.ViewModels.Home.IndexModel
 @{
+    ViewData["Title"] = "Recipes List";
 }
 
-This is the Index
+<h2>Here you go the list of recipes in our page.</h2>
+
+<p>
+    <a asp-page="/Recipes/Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipes[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipes[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recipes[0].User.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Recipes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    <a asp-page="../Rcipes/Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="../Recipes/Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="../Recipes/Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

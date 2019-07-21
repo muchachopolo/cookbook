@@ -1,4 +1,5 @@
 ﻿using System;
+using CookBook.Entities.Recipes;
 using CookBook.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,5 +12,6 @@ namespace CookBook.DataSource.Repository
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
     }
 }
