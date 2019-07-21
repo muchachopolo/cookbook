@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Users\" />
+    <Folder Include="Base\" />
+    <Folder Include="Recipes\" />
+  </ItemGroup>
 </Project>
